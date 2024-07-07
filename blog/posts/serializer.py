@@ -1,8 +1,8 @@
-from rest_framework.serializers import Serializer
+from rest_framework.serializers import Serializer, ModelSerializer
 from .models import Post
 
 
-class PostSerializer(Serializer):
+class PostSerializer(ModelSerializer):
 
     class Meta:
 
@@ -13,5 +13,5 @@ class PostSerializer(Serializer):
             "body",
             "created_at"
         )
-        model=Post
+        model = Post
 

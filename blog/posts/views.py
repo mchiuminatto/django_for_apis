@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework import permissions # new
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 from .models import Post
@@ -13,6 +14,7 @@ class PostList(ListCreateAPIView):
 
 
 class PostDetails(RetrieveUpdateDestroyAPIView):
+    permission_classes = (permissions.IsAdminUser, )  # new
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
